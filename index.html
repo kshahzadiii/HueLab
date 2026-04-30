@@ -1,38 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hue Lab | Design Agency</title>
-    <link rel="icon" type="image/x-icon" href="./resources/nobg.png"> 
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hue Lab | Design Agency</title>
+        <link rel="icon" type="image/x-icon" href="./resources/nobg.png"> 
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    </head>
     
-</head>
-<body>
-
-    <nav class="navbar">
-        <div class="logo"> 
-            <div class="logo-icon-container">
-                <img src="./resources/nobg.png" alt="Logo" class="logo-icon"> 
+    <body>
+        <nav class="navbar">
+            <div class="logo"> 
+                <div class="logo-icon-container">
+                    <img src="./resources/nobg.png" alt="Logo" class="logo-icon"> 
+                </div>
+                <span class="logo-text">ue Lab</span> 
             </div>
-            <span class="logo-text">ue Lab</span> 
-        </div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Product</a></li>
-            <li><a href="#">Blog</a></li>
-        </ul>
-    </nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Product</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </nav>
 
-    <header class="hero">
+        <header class="hero">
+            
+            <h1 class="gradient-text">One Design Lab <br> Many Exciting Results</h1>
+            <p class="subtext">You won't believe what we can do for you!</p>
         
-        <h1 class="gradient-text">One Design Lab <br> Many Exciting Results</h1>
-        <p class="subtext">You won't believe what we can do for you!</p>
-        
-        <button class="btn-cta">Book Free Consultation Now!</button>
-    </header>
+            <button class="btn-cta">Book Free Consultation Now!</button>
+        </header>
+        <section class="capabilities">
+            <div class="section-header reveal">
+                <h2>Our Capabilities</h2>
+                <div class="line-divider"></div>
+            </div>
+            <div class="capabilities-grid">
+                <!-- Card 1 -->
+                <div class="cap-card reveal">
+                    <div class="icon-box">01</div>
+                    <h3>Web & App Development</h3>
+                    <p>Building high-performance, subscription-based digital products with a focus on scalability.</p>
+                </div>
 
-</body> 
-</html>
+                <!-- Card 2 -->
+                <div class="cap-card reveal">
+                    <div class="icon-box">02</div>
+                    <h3>UI/UX Design</h3>
+                    <p>Creating intuitive, clean, and modern interfaces that prioritize user experience and aesthetic flow.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="cap-card reveal">
+                    <div class="icon-box">03</div>
+                    <h3>Brand Identity</h3>
+                    <p>Developing unique visual languages using color theory and modern typography to make brands pop.</p>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Add a small delay for each card to create a staggered look
+                        setTimeout(() => {
+                            entry.target.classList.add('active');
+                        }, index * 150); 
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach((el) => {
+                observer.observe(el);
+            });
+        </script>
+    </body> 
+</html> 

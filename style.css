@@ -29,6 +29,7 @@ body {
     text-align: center;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* 
@@ -39,7 +40,7 @@ body {
 .hero::before {
     content: "";
     position: absolute;
-    bottom: -15%;
+    bottom: -20%;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
@@ -179,6 +180,94 @@ body {
     transform: translateY(-3px);
 }
 
+.capabilities {
+    padding: 100px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.line-divider {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, #e91e63, #ffcc80);
+    border-radius: 2px;
+}
+
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Glass Card Design */
+.cap-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 40px;
+    border-radius: 24px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cap-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(233, 30, 99, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.icon-box {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #e91e63;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.cap-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.cap-card p {
+    color: #94a3b8;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* --- Reveal Animation Classes --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+
+
+
+
+/* phone and tablet */
 
 @media screen and (max-width: 768px) {
     .logo {
@@ -191,7 +280,8 @@ body {
     } 
 
     .hero {
-        height: 85vh;
+        height: 75vh;
+        padding-top: 80px;
     }
 
     .gradient-text {
@@ -199,4 +289,35 @@ body {
         padding: 20px;
         text-align: center;
     }
-}  
+
+    .btn-cta {
+        padding: 12px 30px;
+        font-size: 0.9rem;
+    }
+
+    .subtext {
+        font-size: 1rem;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }   
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .line-divider {
+        margin: 0 auto;
+    }
+
+    .capabilities {
+        padding: 60px 40px;
+    }
+
+    .capabilities-grid {
+        grid-template-columns: 1fr;
+    
+    }
+}
