@@ -105,6 +105,87 @@
                 </div>
             </div>
         </section>
+        <section class="pricing-section reveal">
+            <div class="section-header">
+                <h2>Choose Your Plan</h2>
+                <p class="subtext">Transparent pricing for high-velocity growth.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <div class="plan-tier">Design</div>
+                    <div class="price">$2,499<span>/mo</span></div>
+                    <ul class="features">
+                        <li>Unlimited Design Requests</li>
+                        <li>UI/UX & Brand Identity</li>
+                        <li>Average 48h Turnaround</li>
+                        <li>Pause or Cancel Anytime</li>
+                    </ul>
+                    <button class="btn-plan">Get Started</button>
+                </div>
+                <div class="price-card featured">
+                    <div class="popular-tag">Most Popular</div>
+                    <div class="plan-tier">Development</div>
+                    <div class="price">$4,999<span>/mo</span></div>
+                    <ul class="features">
+                        <li>Full-Stack Web Development</li>
+                        <li>React / Next.js Expert Build</li>
+                        <li>Git Version Control Management</li>
+                        <li>Priority Support</li>
+                    </ul>
+                    <button class="btn-plan glow">Get Started</button>
+                </div>
+                <div class="price-card">
+                    <div class="plan-tier">The Full Lab</div>
+                    <div class="price">Custom</div>
+                    <ul class="features">
+                        <li>End-to-End Product Design</li>
+                        <li>Custom Automation & Bots</li>
+                        <li>Internal Video Tutorials</li>
+                        <li>Dedicated Project Manager</li>
+                    </ul>
+                    <button class="btn-plan">Book a Call</button>
+                </div>
+            </div>
+        </section>
+
+        <div id="leadModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <div class="modal-header">
+                    <h2>Start Your Project</h2>
+                    <p>Tell us about your business and we'll reach out within 24 hours.</p>
+                </div>
+        
+                <form id="leadForm" class="contact-form">
+                    <div class="form-row">
+                        <input type="text" placeholder="First Name" required>
+                        <input type="text" placeholder="Last Name" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="email" placeholder="Email Address" required>
+                        <input type="tel" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="text" placeholder="Business Name" required>
+                        <input type="text" placeholder="Industry" required>
+                    </div>
+                    
+                    <label for="revenue">Approx. Annual Revenue</label>
+                    <select id="revenue" required>
+                        <option value="" disabled selected>Select Range</option>
+                        <option value="0-100k">$0 - $100k</option>
+                        <option value="100k-500k">$100k - $500k</option>
+                        <option value="500k-1M">$500k - $1M</option>
+                        <option value="1M+">$1M+</option>
+                    </select>
+
+                    <textarea placeholder="What services are you most looking for? (Optional)"></textarea>
+                    
+                    <button type="submit" class="btn-submit">Submit Application</button>
+                </form>
+            </div>
+        </div>
 
         <script>
             const observerOptions = {
@@ -125,6 +206,35 @@
             document.querySelectorAll('.reveal').forEach((el) => {
                 observer.observe(el);
             });
+
+            const modal = document.getElementById("leadModal");
+            const closeBtn = document.querySelector(".close-btn");
+
+            // Function to open modal
+            document.querySelectorAll('.btn-plan, .btn-cta').forEach(button => {
+                button.onclick = function() {
+                    modal.style.display = "block";
+                }
+            }); 
+
+            // Close when clicking X
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // Close when clicking outside the box
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            // Prevent actual refresh on submit for now
+            document.getElementById("leadForm").onsubmit = function(e) {
+                e.preventDefault();
+                alert("Lead generated for Hue Lab! We will contact you soon.");
+                modal.style.display = "none";
+            }
         </script>
     </body> 
 </html> 
